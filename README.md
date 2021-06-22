@@ -1,6 +1,6 @@
 # aws_adx_etl_pipeline
 
-![stepfunctions_graph](https://user-images.githubusercontent.com/18109881/121964558-922cf700-cd20-11eb-8a49-8140ab27544d.png)
+![stepfunctions_graph (2)](https://user-images.githubusercontent.com/18109881/122941829-9792ce80-d32a-11eb-9045-ff12b0a5f689.png)
 
 This sample shows how to set up an AWS Lambda function which will automatically export all newly published revisions for a given Data Set to S3. All infrastructure is setup using Terraform.
 
