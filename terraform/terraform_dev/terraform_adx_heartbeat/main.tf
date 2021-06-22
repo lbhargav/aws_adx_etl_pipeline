@@ -13,17 +13,17 @@ provider "aws" {
 }
 
 module "adx_heartbeat_cloudwatch" {
-  source = "../terraform/terraform_adx_common/cloudwatch"
+  source = "../terraform_adx_common/cloudwatch"
   datasetID = "aae4c2cd145a48454f9369d4a4db5c66"
   adx_inbound_sqs_queue_arn = "${module.adx_heartbeat_sqs.adx_inbound_sqs_queue_arn}"
 }
 
 module "adx_heartbeat_sqs" {
-  source = "../terraform/terraform_adx_common/sqs"
+  source = "../terraform_adx_common/sqs"
 }
 
 module "adx_heartbeat_lambda" {
-  source = "../terraform/terraform_adx_common/lambda"
+  source = "../terraform_adx_common/lambda"
   adx_s3_bucket_id = "${module.adx_heartbeat_s3.adx_s3_bucket_id}"
   adx_s3_bucket_arn = "${module.adx_heartbeat_s3.adx_s3_bucket_arn}"
   adx_s3_bucket = "${module.adx_heartbeat_s3.adx_s3_bucket}"
@@ -36,7 +36,7 @@ module "adx_heartbeat_lambda" {
 }
 
 module "adx_heartbeat_step_function" {
-  source = "../terraform/terraform_adx_common/step_function"
+  source = "../terraform_adx_common/step_function"
   adx_s3_bucket_id = "${module.adx_heartbeat_s3.adx_s3_bucket_id}"
   adx_s3_bucket_arn = "${module.adx_heartbeat_s3.adx_s3_bucket_arn}"
   adx_s3_bucket = "${module.adx_heartbeat_s3.adx_s3_bucket}"
@@ -45,16 +45,16 @@ module "adx_heartbeat_step_function" {
 }
 
 module "adx_heartbeat_dynamodb" {
-  source = "../terraform/terraform_adx_common/dynamodb"
+  source = "../terraform_adx_common/dynamodb"
   adx_s3_bucket_arn = "${module.adx_heartbeat_s3.adx_s3_bucket_arn}"
 }
 
 module "adx_heartbeat_s3" {
-  source = "../terraform/terraform_adx_common/s3"
+  source = "../terraform_adx_common/s3"
 }
 
 module "adx_heartbeat_glue" {
-  source = "../terraform/terraform_adx_common/glue"
+  source = "../terraform_adx_common/glue"
   adx_outbound_queue_id = "${module.adx_heartbeat_sqs.adx_outbound_queue_id}"
   adx_s3_bucket_id = "${module.adx_heartbeat_s3.adx_s3_bucket_id}"
   adx_s3_bucket_arn = "${module.adx_heartbeat_s3.adx_s3_bucket_arn}"

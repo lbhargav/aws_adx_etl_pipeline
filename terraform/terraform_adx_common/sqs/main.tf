@@ -36,6 +36,7 @@ resource "aws_sqs_queue_policy" "adx_sqs_queue_policy" {
 POLICY
 }
 
+$datasetname-inound
 # Create SQS Queue 'adx-s3export-new-revision-event-queue'
 resource "aws_sqs_queue" "adx-s3export-new-revision-event-queue" {
   name                        = "adx-s3export-new-revision-event-queue.fifo"
